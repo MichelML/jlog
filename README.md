@@ -1,12 +1,12 @@
-# jlog
+# jlog2
 
-A Clojure library designed to ... well, that part is up to you.
+log time spent on jira issues from the commandline
 
 ## Usage
 
-FIXME
+coming soon 
 
-## License
+## MIT License
 
 Copyright © 2017 FIXME
 
