@@ -1,4 +1,5 @@
-(ns jlog.core)
+(ns jlog.core
+  (:require [clojure.string :as str]))
 
 (defn has-length?
   "Checks if a list or string is of length n."
@@ -21,11 +22,16 @@
   (and (has-min-length? timelog 2) (not (nil? (re-find #"^([1-8]h)?([1-6]{0,1}[0-9]{0,1}m)?$" timelog)))))
 
 (defn valid-jlog-args-list?
-  "Takes a list of 0, 1, or 2 args and check if this is a valid argument list in the context of jlog."
+  "Takes a list of 2 args and check if this is a valid argument list in the context of jlog."
   [args-list]
   (let [jlog-flag "-t" first-arg (first args-list) second-arg (nth args-list 1)]
     (and (= first-arg jlog-flag) 
          (valid-jlog-time? second-arg))))
 
+(defn seperate-nums&chars
+  "Takes a JIRA-like timelog and separates the numbers from the chars."
+  [timelog]
+  (str/split (str/replace timelog #"\D"  #(str " " %1 " ")) #"\s"))
+
 (defn -main [& args]
-  (println (get-two-args args)))
+  (println (valid-jlog-args-list? (get-two-args args))))

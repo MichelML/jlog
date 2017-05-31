@@ -69,3 +69,9 @@
     (is (true? (valid-jlog-args-list? ["-t" "33m"])))
     (is (true? (valid-jlog-args-list? ["-t" "8h60m"])))))
 
+(deftest seperate-nums&chars-test
+  (testing "should seperate the nums from the chars"
+    (is (= ["1" "h"] (seperate-nums&chars "1h")))
+    (is (= ["10" "m"] (seperate-nums&chars "10m")))
+    (is (= ["1" "h" "1" "m"] (seperate-nums&chars "1h1m")))
+    (is (= ["8" "h" "60" "m"] (seperate-nums&chars "8h60m")))))
