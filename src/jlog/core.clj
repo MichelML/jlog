@@ -17,9 +17,9 @@
   (if (not (has-min-length? args-list 2)) ["" ""] (take 2 args-list)))
 
 (defn valid-jlog-time?
-  "Checks if the argument provided is of format HHhMMm (basic support for JIRA time-log)."
+  "Checks if the argument provided is of format HhMMm (basic support for JIRA time-log)."
   [timelog]
-  (and (has-min-length? timelog 2) (not (nil? (re-find #"^([1-8]h)?([1-6]{0,1}[0-9]{0,1}m)?$" timelog)))))
+  (and (has-min-length? timelog 2) (not (nil? (re-find #"^([1-8][hH])?([1-6]{0,1}[0-9]{0,1}[mM])?$" timelog)))))
 
 (defn valid-jlog-args-list?
   "Takes a list of 2 args and check if this is a valid argument list in the context of jlog."
@@ -28,10 +28,15 @@
     (and (= first-arg jlog-flag) 
          (valid-jlog-time? second-arg))))
 
-(defn seperate-nums&chars
-  "Takes a JIRA-like timelog and separates the numbers from the chars."
-  [timelog]
-  (str/split (str/replace timelog #"\D"  #(str " " %1 " ")) #"\s"))
+(defn space-hrs&mins
+  "Adds a space between the hours log and minutes log if both are present."
+  [timelog-raw]
+  (let [timelog (str/lower-case timelog-raw)]
+    (if (and (str/includes? timelog "h") (str/includes? timelog "m")) 
+      (str/replace timelog "h" "h ") 
+      timelog)))
 
 (defn -main [& args]
-  (println (valid-jlog-args-list? (get-two-args args))))
+  (if (valid-jlog-args-list? (get-two-args args))
+    (println (space-hrs&mins (second args)))
+    (println "Invalid syntax. Run jlog with 'jlog -t 1h'")))
