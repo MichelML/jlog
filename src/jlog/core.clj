@@ -38,5 +38,5 @@
 
 (defn -main [& args]
   (if (valid-jlog-args-list? (get-two-args args))
-    (println (space-hrs&mins (second args)))
+    (spit "jlog.txt" (str (.format (java.text.SimpleDateFormat. "MM/dd/yyyy") (new java.util.Date)) " --- " (space-hrs&mins (second args)) "\n"))
     (println "Invalid syntax. Run jlog with 'jlog -t 1h'")))
