@@ -77,5 +77,5 @@
 (deftest space-hrs&mins-hours-or-mins-only
   (testing "should leave the time log as is if there is only hours or minutes provided"
     (is (= "30m" (space-hrs&mins "30m")))
-    (is (= "3" (space-hrs&mins "3m")))
+    (is (= "3m" (space-hrs&mins "3m")))
     (is (= "1h" (space-hrs&mins "1h")))))

@@ -1,5 +1,6 @@
 (ns jlog.core
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str])
+  (:gen-class))
 
 (defn has-length?
   "Checks if a list or string is of length n."
