@@ -57,6 +57,6 @@
   (if (valid-jlog-args-list? (get-two-args args))
     (spit (str (jar-path) "jlog.txt") (str @jira-issue " --- " (.format (java.text.SimpleDateFormat. "MM/dd/yyyy") (new java.util.Date)) " --- " (space-hrs&mins (second args)) "\n") :append true)
     (println "Invalid syntax. Run jlog with 'jlog -t 1h'"))
-  )
+  (System/exit 0))
 
 
