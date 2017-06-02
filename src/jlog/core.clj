@@ -44,8 +44,9 @@
   "utility function to get the jar path without the jar file."
   [& [ns]]
   (str/replace (-> (or ns (class *ns*))
-      .getProtectionDomain .getCodeSource .getLocation .getPath) #"[^/]+$" ""))
+                   .getProtectionDomain .getCodeSource .getLocation .getPath) #"[^/]+$" ""))
 
+;; use a future to make sure the shell command is executed before exiting the program
 (def jira-issue
   (future 
     (let [out (:out (sh "hg" "branch"))]
@@ -55,7 +56,11 @@
 
 (defn -main [& args]
   (if (valid-jlog-args-list? (get-two-args args))
-    (spit (str (jar-path) "jlog.txt") (str @jira-issue " --- " (.format (java.text.SimpleDateFormat. "MM/dd/yyyy") (new java.util.Date)) " --- " (space-hrs&mins (second args)) "\n") :append true)
+    (spit (str (jar-path) "jlog.txt") (str 
+                                        @jira-issue " --- " 
+                                        (.format (java.text.SimpleDateFormat. "MM/dd/yyyy") (new java.util.Date)) " --- " 
+                                        (space-hrs&mins (second args)) "\n") 
+          :append true)
     (println "Invalid syntax. Run jlog with 'jlog -t 1h'"))
   (System/exit 0))
 
