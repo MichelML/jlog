@@ -63,5 +63,3 @@
           :append true)
     (println "Invalid syntax. Run jlog with 'jlog -t 1h'"))
   (System/exit 0))
-
-
