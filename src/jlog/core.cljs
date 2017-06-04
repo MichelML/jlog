@@ -1,9 +1,12 @@
 (ns jlog.core
-  (:require [clojure.string :as str :refer [split includes? blank? lower-case upper-case]])
-  (:require [clojure.java.shell :only [sh]])
-  (:gen-class))
+  (:require [
+             [org.clojure/clojurescript "1.9.473"]
+             [clojure.string :as str :refer [split includes? blank? lower-case upper-case]]
+             [cljs.nodejs :as nodejs]
+             [shelljs :as shell :refer [exec]]
+             ]))
 
-(use '[clojure.java.shell :only [sh]])
+(nodejs/enable-util-print!)
 
 (defn valid-jlog-time?
   "Checks if the argument provided is of format HhMMm (basic support for JIRA time-log)."
@@ -36,11 +39,11 @@
   "Get a Jira issue key from a branch name. Uses a future to make sure the shell command is executed before exiting the program."
   []
   (future 
-    (let [out (:out (sh "hg" "branch"))]
+    (let [out (:stdout (exec "hg branch" {:silent true}))]
       (if-not (blank? out) 
         (re-find #"[a-zA-Z]{3,4}-\d{1,4}" out)
         (throw 
-          (Exception. "Cannot retrieve your current branch. Make sure you are in a repository's."))))))
+          (js/Error "Cannot retrieve your current branch. Make sure you are in a repository's."))))))
 
 (defn get-date
   "Gets a MM/dd/yyyy formatted date."
@@ -61,12 +64,12 @@
   (if (= arg1 "-b")
     (if (valid-jlog-time? arg2)
       (spit-log arg2 @(get-jira-issue) message)
-      (throw (Exception. "Invalid timelog format provided.")))
+      (throw (js/Error "Invalid timelog format provided.")))
     (if (valid-jlog-time? arg1)
       (if (valid-jira-issue? arg2)
         (spit-log arg1 (upper-case arg2) message)
-        (throw (Exception. "Invalid Jira issue key format provided.")))
-      (throw (Exception. "Invalid timelog format provided.")))))
+        (throw (js/Error "Invalid Jira issue key format provided.")))
+      (throw (js/Error "Invalid timelog format provided.")))))
 
 (defn print-help
   "Prints the possible jlog commands to the console."
@@ -83,3 +86,5 @@
     (= "-o" (first args)) ((sh "open" (str (get-jar-root) "jlog.txt")) (System/exit 0))
     (= (count (take 3 args)) 3) (apply jlog (take 3 args))
     :else ((println "Syntax error.") (print-help))))
+
+(set! *main-cli-fn* -main)
