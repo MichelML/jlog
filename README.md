@@ -45,7 +45,7 @@ jlog 2h30m TEST-12 "write your comment message here"
 ```   
   
 Log for a specific Jira issue retrieved from a repository branch
-```
+```bash
 # while in your repository, on a branch having a name containing a Jira issue key
 jlog -b 1h45m "write your comment message here"
 ```
