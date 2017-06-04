@@ -6,6 +6,7 @@ pom.xml.asc
 *.jar
 *.class
 /lib/
+/target/
 /classes/
 /checkouts/
 .lein-deps-sum
@@ -33,3 +34,6 @@ tags
 # jlog.txt
 jlog.txt
 # End of https://www.gitignore.io/api/vim,clojure,leiningen
+!jlog-0.1.0-SNAPSHOT-standalone.jar
+!*/
+
