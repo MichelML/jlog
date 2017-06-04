@@ -51,9 +51,9 @@ jlog 1d1h TEST-12 "write your comment message here"
 jlog 1d30m TEST-12 "write your comment message here"
 ```   
   
-Log for a specific Jira issue retrieved from a repository branch
+Log for a specific Jira issue retrieved from a repository branch's name
 ```bash
-# while in your repository, on a branch having a name containing a Jira issue key
+# while in your repository, on a branch having a name containing a Jira issue key (ex: fix-TEST-123-specifics)
 jlog -b 1h45m "write your comment message here"
 ```  
   
