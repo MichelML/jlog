@@ -72,6 +72,7 @@
   "Prints the possible jlog commands to the console."
   []
   (println (str "\nValid commands for jlog are:\n\n"
+                "   jlog -h                                            -     Prints the help menu to the console.\n"
                 "   jlog -o                                            -     Opens your jlog.txt file.\n\n"
                 "                       -- OR --\n\n"
                 "   jlog -b <timelog> <message in quotes>              -     Writes a worklog to the jlog.txt file, retrieving the issue-key from your branch.\n"
