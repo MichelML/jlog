@@ -66,7 +66,8 @@
       (if (valid-jira-issue? arg2)
         (spit-log arg1 (upper-case arg2) message)
         (throw (Exception. "Invalid Jira issue key format provided.")))
-      (throw (Exception. "Invalid timelog format provided.")))))
+      (throw (Exception. "Invalid timelog format provided."))))
+  (shutdown-agents))
 
 (defn print-help
   "Prints the possible jlog commands to the console."
@@ -81,6 +82,6 @@
 (defn -main [& args]
   (cond 
     (= "-h" (first args)) (print-help)
-    (= "-o" (first args)) ((sh "open" (str (get-jar-root) "jlog.txt")) (System/exit 0))
+    (= "-o" (first args)) ((sh "open" (str (get-jar-root) "jlog.txt")) (shutdown-agents))
     (= (count (take 3 args)) 3) (apply jlog (take 3 args))
     :else ((println "Syntax error.") (print-help))))
