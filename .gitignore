@@ -35,5 +35,4 @@ tags
 jlog.txt
 # End of https://www.gitignore.io/api/vim,clojure,leiningen
 
-!target/jlog-0.1.0-SNAPSHOT-standalone.jar
-!*/
+!*/target/jlog-0.1.0-SNAPSHOT-standalone.jar
