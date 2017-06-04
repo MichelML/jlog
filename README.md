@@ -27,7 +27,7 @@ Valid commands for _jlog_ are:
 ``` 
    jlog -h                                            -     Prints the help menu to the console.
    jlog -o                                            -     Opens your jlog.txt file.
-   jlog -b <timelog> <message in quotes>              -     Writes a worklog to the jlog.txt file, retrieving the issue-key from your branch.
+   jlog -b <timelog> <message in quotes>              -     Writes a worklog to the jlog.txt file, retrieving the Jira issue key from your branch (see examples).
    jlog <timelog> <issue key> <message in quotes>     -     Writes a worklog to the jlog.txt file using the provided information.
 ```  
 
