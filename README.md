@@ -3,8 +3,8 @@
 <a href="https://github.com/MichelML/jlog2"><img src="https://travis-ci.org/MichelML/jlog2.svg?branch=master"  alt='Build Status'></img></a>
 </div>
 
-<p>Save Jira worklogs from the your terminal as you do the actual work. Stop switching context for it. Stop relying on your memory to recall what you did.</p>   
-<p>The goal is to save your worklog __as you do the actual work__. That being said, with jlog, you can thus only save worklogs for the current work day. </p>
+<p>Save Jira worklogs from the terminal as you do the actual work. Stop switching context for it. Stop relying on your memory to recall what you did.</p>   
+<p>The goal is to save your worklog <strong>as you do the actual work</strong>. That being said, with jlog, you can thus only save worklogs for the current work day. </p>
 
 ## Installation  
   
