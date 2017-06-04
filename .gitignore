@@ -1,7 +1,5 @@
 created by https://www.gitignore.io/api/vim,clojure,leiningen
 
-!/target/jlog-0.1.0-SNAPSHOT-standalone.jar
-
 ### Clojure ###
 pom.xml
 pom.xml.asc
@@ -10,6 +8,7 @@ pom.xml.asc
 /lib/
 /classes/
 /target/
+!/target/jlog-0.1.0-SNAPSHOT-standalone.jar
 /checkouts/
 .lein-deps-sum
 .lein-repl-history
