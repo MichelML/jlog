@@ -1,0 +1,27 @@
+{
+  "name": "jlog",
+  "version": "1.0.0",
+  "description": "save your jira related worklogs in a timely fashion",
+  "main": "main.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": { "jlog": "./main.js" },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichelML/jlog2.git"
+  },
+  "author": "Michel Moreau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MichelML/jlog2/issues"
+  },
+  "homepage": "https://github.com/MichelML/jlog2#readme",
+  "dependencies": {
+    "shelljs": "^0.7.7"
+  }
+}
