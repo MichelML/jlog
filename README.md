@@ -58,4 +58,12 @@ Log for a specific Jira issue retrieved from a repository branch
 ```bash
 # while in your repository, on a branch having a name containing a Jira issue key
 jlog -b 1h45m "write your comment message here"
+```  
+  
+Open your `jlog.txt` file at the end of the day and simply use the saved information to enter your worklogs in Jira.  
+
+```bash
+# Opens your jlog.txt file  
+jlog -o
 ```
+
