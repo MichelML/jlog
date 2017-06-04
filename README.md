@@ -12,7 +12,7 @@ Clone the repository locally.
 git clone https://github.com/MichelML/jlog.git  
 ```
 
-Use an alias to point to the jlog standalone jar in your `.bash_profile` file. 
+Use an alias to point to the _jlog_ standalone jar in your `.bash_profile` file. 
   
 ```
 alias jlog="java -jar <path to the jlog cloned repo>/target/jlog-0.1.0-SNAPSHOT-standalone.jar"
@@ -20,7 +20,7 @@ alias jlog="java -jar <path to the jlog cloned repo>/target/jlog-0.1.0-SNAPSHOT-
 
 ## Usage  
 
-Valid commands for jlog are:
+Valid commands for _jlog_ are:
 
 ``` 
    jlog -h                                            -     Prints the help menu to the console.
