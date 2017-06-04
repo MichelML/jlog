@@ -2,7 +2,9 @@
 <div>
 <a href="https://github.com/MichelML/jlog2"><img src="https://travis-ci.org/MichelML/jlog2.svg?branch=master"  alt='Build Status'></img></a>
 </div>
-log time spent on jira issues from the commandline
+Save Jira-issue related worklogs from the commandline as you do the actual work. Stop switching context for it. Stop relying on your memory to recall what you did.  
+  
+The goal is to save your worklog __as you do the actual work__. That being said, with jlog, you can thus only save worklogs for the current work day. 
 
 ## Installation  
   
@@ -34,14 +36,22 @@ Valid commands for _jlog_ are:
 
 ## Examples  
 
-Log a full day for a specific Jira isue  
+Log a full day for a specific Jira issue  
 ```  
 jlog 1d TEST-12 "write your comment message here"
 ```
   
-Log hours and minutes  
-```
+Log a full day OR hours and minutes  
+```bash
+# valid commands
+jlog 1d TEST-12 "write your comment message here"
 jlog 2h30m TEST-12 "write your comment message here"
+jlog 30m TEST-12 "write your comment message here"
+jlog 2h TEST-12 "write your comment message here"
+
+# invalid commands
+jlog 1d1h TEST-12 "write your comment message here"
+jlog 1d30m TEST-12 "write your comment message here"
 ```   
   
 Log for a specific Jira issue retrieved from a repository branch
