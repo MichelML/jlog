@@ -55,6 +55,11 @@
         :append true)
   (println "Worklog saved successfully!"))
 
+(defn print-worklogs
+  "Lists/Prints worklogs contained in the jlog.txt file in the console."
+  []
+  (doseq [i ["\n" "Your Jira Worklogs:\n" (slurp (str (get-jar-root) "jlog.txt"))]] (println i)))
+
 (defn jlog
   "Appends a worklog to a jlog.txt file. This is the jlog main function."
   [arg1 arg2 message]
@@ -74,6 +79,7 @@
   []
   (println (str "\nValid commands for jlog are:\n\n"
                 "   jlog -h                                            -     Prints the help menu to the console.\n"
+                "   jlog -l                                            -     Prints worklogs contained in the jlog.txt file to the console.\n"
                 "   jlog -o                                            -     Opens your jlog.txt file.\n\n"
                 "                       -- OR --\n\n"
                 "   jlog -b <timelog> <message in quotes>              -     Writes a worklog to the jlog.txt file, retrieving the issue-key from your branch.\n"
@@ -82,6 +88,7 @@
 (defn -main [& args]
   (cond 
     (= "-h" (first args)) (print-help)
+    (= "-l" (first args)) (print-worklogs)
     (= "-o" (first args)) ((sh "open" (str (get-jar-root) "jlog.txt")) (shutdown-agents))
     (= (count (take 3 args)) 3) (apply jlog (take 3 args))
     :else ((println "Syntax error.") (print-help))))
