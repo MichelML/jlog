@@ -65,7 +65,7 @@ Open your `jlog.txt` file at the end of the day and simply use the saved informa
 jlog -o
 ```
 
-You can also just print your saved information in your terminal with the following command.
+You can also print saved information in your terminal with the following command.
 
 ```bash
 # Prints your jlog.txt content to the terminal 
