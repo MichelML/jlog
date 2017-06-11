@@ -80,8 +80,7 @@
   (println (str "\nValid commands for jlog are:\n\n"
                 "   jlog -h                                            -     Prints the help menu to the console.\n"
                 "   jlog -l                                            -     Prints worklogs contained in the jlog.txt file to the console.\n"
-                "   jlog -o                                            -     Opens your jlog.txt file.\n\n"
-                "                       -- OR --\n\n"
+                "   jlog -o                                            -     Opens your jlog.txt file.\n"
                 "   jlog -b <timelog> <message in quotes>              -     Writes a worklog to the jlog.txt file, retrieving the issue-key from your branch.\n"
                 "   jlog <timelog> <issue key> <message in quotes>     -     Writes a worklog to the jlog.txt file using the provided information.\n")))
 
