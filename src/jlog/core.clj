@@ -89,5 +89,7 @@
     (= "-h" (first args)) (print-help)
     (= "-l" (first args)) (print-worklogs)
     (= "-o" (first args)) ((sh "open" (str (get-jar-root) "jlog.txt")) (shutdown-agents))
+    (and (= "-co" (first args)) (= (count (take 3 args)) 3)) ((apply jlog (take 3 args))
+                                                              (sh "hgco" "-m" (last args)))
     (= (count (take 3 args)) 3) (apply jlog (take 3 args))
     :else ((println "Syntax error.") (print-help))))
