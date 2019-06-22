@@ -72,15 +72,14 @@
 (defn jlog
   "Appends a worklog to the worklogs file. This is the jlog main function."
   [arg1 arg2 message]
-  (if (= arg1 "-b")
-    (if (valid-jlog-time? arg2)
+  (cond 
+    (= arg1 "-b") (if (valid-jlog-time? arg2)
       (spit-log arg2 @(get-jira-issue) message)
       (throw (Exception. "Invalid timelog format provided.")))
-    (if (valid-jlog-time? arg1)
-      (if (valid-jira-issue? arg2)
+    (valid-jlog-time? arg1) (if (valid-jira-issue? arg2)
         (spit-log arg1 (upper-case arg2) message)
         (throw (Exception. "Invalid Jira issue key format provided.")))
-      (throw (Exception. "Invalid timelog format provided.")))))
+    :else (throw (Exception. "Invalid timelog format provided."))))
 
 (defn print-help
   "Prints the possible jlog commands to the console."
