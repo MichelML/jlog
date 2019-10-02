@@ -4,7 +4,7 @@
 </div>
 
 <p>Save Jira worklogs from the terminal as you do the actual work. Stop switching context for it. Stop relying on your memory to recall what you did.</p>   
-<p>The goal is to save your worklog <strong>as you do the actual work</strong>. That being said, with <i>jlog</i>, you can thus only save worklogs for the current work day. </p>
+<p>The goal is to save your worklog <strong>as you do the actual work</strong>.
 
 ## Installation  
   
