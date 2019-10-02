@@ -3,7 +3,7 @@
 <a href="https://github.com/MichelML/jlog2"><img src="https://travis-ci.org/MichelML/jlog.svg?branch=master"  alt='Build Status'></img></a>
 </div>
 
-<p>Save Jira worklogs from the terminal as you do the actual work. Stop switching context for it. Stop relying on your memory to recall what you did.</p>   
+<p>Save Jira worklogs from the terminal. Stop switching context for it. Stop relying on your memory to recall what you did.</p>   
 <p>The goal is to save your worklog <strong>as you do the actual work</strong>.
 
 ## Installation  
